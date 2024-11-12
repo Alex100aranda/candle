@@ -1,0 +1,402 @@
+/* General body and layout */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: #ddd;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+header .logo img {
+    height: 100px;
+    width: auto;
+}
+
+/* Navigation styling */
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.menu a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Submenu (dropdown) styles */
+.submenu {
+    position: relative;
+}
+
+.submenu .submenu-items {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    padding: 0;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.submenu .submenu-items li a {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ddd;
+    text-transform: none;
+}
+
+.submenu .submenu-items li a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Hover effect to show the dropdown */
+.submenu:hover .submenu-items {
+    display: block;
+}
+
+/* Estilos para el menú hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #ddd;
+    border-radius: 3px;
+}
+
+/* Mostrar el menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ocultar el menú en pantallas pequeñas */
+    nav {
+        display: none;
+    }
+
+    /* Mostrar el botón de hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Estilo para el menú cuando se abre */
+    .menu.open {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    .menu li {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .menu a {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    /* Submenú en versión móvil */
+    .submenu .submenu-items {
+        position: relative;
+        display: none;
+        box-shadow: none;
+    }
+
+    .submenu.open .submenu-items {
+        display: block;
+    }
+}
+
+
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;  /* Puedes ajustar la altura según el diseño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;  /* Texto en blanco */
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Imagen ocupa todo el ancho */
+    height: 100%; /* Imagen ocupa toda la altura */
+    object-fit: cover;  /* Asegura que la imagen cubra el contenedor sin distorsión */
+    z-index: -1;  /* Coloca la imagen detrás del contenido */
+}
+
+/* Banner content styling */
+.banner-content {
+    max-width: 800px;  /* Limita el ancho del contenido */
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo oscuro semi-transparente para legibilidad */
+    padding: 20px;
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    font-family: 'Garamond', serif; /* Fuente elegante, si deseas algo más gótico puedes cambiarla */
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-banner {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #800000; /* Color rojo oscuro para el botón */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-banner:hover {
+    background-color: #b30000; /* Color más claro al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .banner h2 {
+        font-size: 28px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    .btn-banner {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}
+
+
+/* Estilos para la sección de Colección */
+.coleccion {
+    padding: 60px 20px;
+    background-color: #222; /* Fondo oscuro para la sección */
+    color: #ddd; /* Texto claro */
+}
+
+.coleccion-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #800000; /* Color rojo oscuro, como en el resto de la página */
+    text-transform: uppercase;
+    border-bottom: 2px solid #800000; /* Línea debajo del título */
+    padding-bottom: 10px;
+}
+
+.coleccion-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 30px;
+    justify-items: center; /* Centra las imágenes dentro de cada columna */
+}
+
+.coleccion-item {
+    position: relative;
+    overflow: hidden;
+    background-color: #333; /* Fondo oscuro para las tarjetas */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px;
+}
+
+.coleccion-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #800000; /* Línea de separación debajo de la imagen */
+}
+
+.coleccion-item figcaption {
+    padding: 10px;
+    font-size: 18px;
+    color: #fff; /* Texto blanco */
+    background-color: #222; /* Fondo oscuro */
+    border-radius: 0 0 10px 10px;
+}
+
+.coleccion-item:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transition: transform 0.3s ease-in-out;
+}
+
+.coleccion-item:hover figcaption {
+    background-color: #800000; /* Cambia el fondo del texto al pasar el ratón */
+}
+
+@media (max-width: 1024px) {
+    .coleccion-gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tabletas */
+    }
+}
+
+@media (max-width: 768px) {
+    .coleccion-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .coleccion-gallery {
+        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+
+
+
+/* Footer */
+.footer {
+    background-color: #111;  /* Fondo oscuro para el pie de página */
+    color: #ddd;  /* Color claro para el texto */
+    padding: 40px 0;
+    font-family: 'Garamond', serif; /* Fuente elegante */
+    text-align: center;  /* Centramos todo el contenido del footer */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #800000;  /* Línea roja para un toque gótico */
+    padding-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li,
+.footer-social li {
+    margin: 10px 0;
+}
+
+.footer-links a,
+.footer-social a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: #800000;  /* Color rojo oscuro al pasar el ratón */
+}
+
+.footer-social a {
+    display: inline-block;
+    padding: 12px;
+    font-size: 24px; /* Tamaño mayor para los íconos */
+    border-radius: 50%;
+    background-color: #222;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+    background-color: #800000;  /* Rojo oscuro al pasar el ratón */
+    color: #fff;  /* Cambia el color del ícono cuando se pasa el ratón */
+}
+
+/* Alineación centrada de derechos de autor */
+.footer-rights {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 24px;
+    padding-top: 20px;  /* Añadimos algo de espacio hacia arriba */
+    border-top: 1px solid #800000;  /* Línea sutil arriba del copyright */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links,
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-social a {
+        margin-bottom: 10px;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+    }
+}
